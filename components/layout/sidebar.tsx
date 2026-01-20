@@ -22,7 +22,7 @@ export default function Sidebar({isAdmin = false}: { isAdmin?: boolean }) {
     return (
 
         <aside
-            className="w-64 border-r flex flex-col fixed inset-y-0 z-[70] transition-all duration-300 border-slate-200 bg-white -translate-x-full md:translate-x-0">
+            className="dark:bg-[#0f172a] w-64 border-r flex flex-col fixed inset-y-0 z-[70] transition-all duration-300 border-slate-200 bg-white -translate-x-full md:translate-x-0">
             <div className="p-6">
                 <div className="flex items-center justify-between mb-10">
                     <div className="flex items-center gap-3">
@@ -30,7 +30,7 @@ export default function Sidebar({isAdmin = false}: { isAdmin?: boolean }) {
                             className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20 text-xl">
                             A
                         </div>
-                        <h1 className="text-xl font-bold tracking-tight text-slate-900">Altura</h1></div>
+                        <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Altura</h1></div>
                     <button className="md:hidden text-slate-500 cursor-pointer">
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"

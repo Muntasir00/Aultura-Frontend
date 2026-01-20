@@ -1,9 +1,23 @@
+"use client"
 import {Icons} from "@/components/icons";
+import {useTheme} from "next-themes";
+import {useEffect, useState} from "react";
 
 export default function Header() {
+    const {theme, setTheme} = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return <div className="dark:bg-[#0f172a] h-16 px-4 sm:px-8 border-b border-slate-200 bg-white sticky top-0 z-40"></div>; // লোডিং স্কেলেটন
+    }
     return (
         <header
-            className="h-16 border-b flex items-center justify-between px-4 sm:px-8 transition-colors duration-300 sticky top-0 z-40 border-slate-200 bg-white/70 backdrop-blur-md">
+            className="dark:bg-[#0f172a] h-16 border-b flex items-center justify-between px-4 sm:px-8 transition-colors duration-300 sticky top-0 z-40 border-slate-200 bg-white/70 backdrop-blur-md">
             <div className="flex items-center gap-4">
                 <button className="md:hidden p-2 text-slate-500">
                     <Icons.bar/>
@@ -20,8 +34,14 @@ export default function Header() {
                     </button>
                 </div>
                 <button
-                    className="cursor-pointer p-2 rounded-lg transition-colors text-slate-600 hover:text-slate-900 hover:bg-slate-100">
-                    <Icons.lightIcon/>
+                    className="cursor-pointer p-2 rounded-lg transition-colors text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                >
+                    {theme === "dark" ? (
+                        <Icons.darkIcon className="w-5 h-5"/> // Sun Icon for Dark Mode
+                    ) : (
+                        <Icons.lightIcon className="w-5 h-5"/>  // Moon Icon for Light Mode
+                    )}
                 </button>
                 <div className="relative">
                     <button

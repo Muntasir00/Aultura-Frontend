@@ -5,7 +5,7 @@ import {AgentCardProps} from "@/types";
 const AgentCard = ({agent, onEdit, onDelete, onCall, onChat}: AgentCardProps) => {
     return (
         <div
-            className="border rounded-xl p-6 transition-all group relative flex flex-col h-full bg-white border-slate-200 hover:border-blue-400 hover:shadow-lg shadow-sm">
+            className="dark:bg-slate-800 border rounded-xl p-6 transition-all group relative flex flex-col h-full bg-white border-slate-200 hover:border-blue-400 hover:shadow-lg shadow-sm">
             <div className="flex items-start justify-between mb-4">
                 <div className="text-4xl">
                     {agent.icon}
@@ -28,7 +28,7 @@ const AgentCard = ({agent, onEdit, onDelete, onCall, onChat}: AgentCardProps) =>
                 </div>
             </div>
 
-            <h3 className="text-xl font-bold mb-1 text-slate-900">
+            <h3 className="text-xl font-bold mb-1 ">
                 {agent.name}
             </h3>
             <p className="text-blue-500 text-sm font-semibold mb-3">

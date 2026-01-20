@@ -1,5 +1,6 @@
 import Sidebar from "@/components/layout/sidebar";
 import Header from "@/components/layout/header";
+import {cn} from "@/lib/utils";
 
 export default function DashboardLayout({
                                             children,
@@ -19,7 +20,7 @@ export default function DashboardLayout({
 
             {/* Main Content Area */}
             {/*<div className="flex-1 flex flex-col md:ml-64 transition-all duration-300">*/}
-            <main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 ">
+            <main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 dark:bg-[#0f172a]">
                 <Header/>
 
                 {/* Page Content (Scrollable) */}
