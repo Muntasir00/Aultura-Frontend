@@ -2,6 +2,7 @@ import {SettingsTabs} from "@/components/settings/settings-tabs";
 import {PageProps} from "@/types/settings";
 import GeneralProfile from "@/components/settings/general-profile";
 import UserManagement from "@/components/settings/user-management";
+import BillingSettings from "@/components/settings/billing-settings";
 
 export default async function Page({searchParams}: PageProps) {
     // ৩. searchParams কে await করে আন র‍্যাপ (unwrap) করতে হবে
@@ -33,11 +34,7 @@ export default async function Page({searchParams}: PageProps) {
                 )}
 
                 {tab === "billing" && (
-                    <div className="p-6 border rounded-2xl bg-white">
-                        <h2 className="text-xl font-bold mb-4">Billing & Payments</h2>
-                        <p className="text-slate-500">Invoices and credit card details...</p>
-                        {/* <BillingSettings /> */}
-                    </div>
+                    <BillingSettings />
                 )}
             </div>
         </>

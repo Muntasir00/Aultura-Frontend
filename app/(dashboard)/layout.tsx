@@ -19,7 +19,7 @@ export default function DashboardLayout({
 
             {/* Main Content Area */}
             {/*<div className="flex-1 flex flex-col md:ml-64 transition-all duration-300">*/}
-            <main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 overflow-x-hidden">
+            <main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 ">
                 <Header/>
 
                 {/* Page Content (Scrollable) */}

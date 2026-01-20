@@ -2,6 +2,7 @@
 
 import AgentCard from "@/components/agents/agent-card";
 import AddAgentCard from "@/components/agents/add-agent-card";
+import {useRouter} from "next/navigation";
 
 const agentsData = [
     {
@@ -21,12 +22,13 @@ const agentsData = [
 ];
 
 const AgentGrid = () => {
+    const router = useRouter();
 
     const handleEdit = (id: number) => console.log("Edit", id);
     const handleDelete = (id: number) => console.log("Delete", id);
     const handleCall = (id: number) => console.log("Call", id);
     const handleChat = (id: number) => console.log("Chat", id);
-    const handleAddNew = () => console.log("Add New Agent clicked");
+    const handleAddNew = () => router.push("/new");
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
