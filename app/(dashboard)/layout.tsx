@@ -1,36 +1,34 @@
+"use client";
+import React, {useState} from "react";
 import Sidebar from "@/components/layout/sidebar";
 import Header from "@/components/layout/header";
-import {cn} from "@/lib/utils";
 
-export default function DashboardLayout({
-                                            children,
-                                        }: {
-    children: React.ReactNode;
-}) {
-    // TODO: আসল প্রোজেক্টে এই ভ্যালুটা সার্ভার সেশন বা অথ থেকে আসবে
-    const isAdmin = true;
+export default function DashboardLayout({children}: { children: React.ReactNode }) {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="flex min-h-screen transition-colors duration-300 bg-slate-50">
-            {/*<div className="flex min-h-screen bg-gray-50 font-sans">*/}
-            {/* Sidebar - Fixed width */}
-            <div className="hidden md:block">
-                <Sidebar isAdmin={isAdmin}/>
-            </div>
+        <div className=" h-screen overflow-hidden transition-colors duration-300 bg-slate-50 flex">
+            {/*<div className="flex min-h-screen transition-colors duration-300 bg-slate-50">*/}
 
-            {/* Main Content Area */}
-            {/*<div className="flex-1 flex flex-col md:ml-64 transition-all duration-300">*/}
-            <main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 dark:bg-[#0f172a]">
-                <Header/>
+            <Sidebar
+                isAdmin={true}
+                isOpen={sidebarOpen}
+                setIsOpen={setSidebarOpen}
+            />
 
-                {/* Page Content (Scrollable) */}
-                {/*<main className="flex-1 p-8 overflow-y-auto">*/}
-                <div className="p-4 sm:p-8">
+            {/* মেইন কন্টেন্ট এরিয়া */}
+            {/*<main className="flex-1 transition-all duration-300 min-h-screen bg-slate-50 md:ml-64 dark:bg-[#0f172a]">*/}
+
+            <div className="flex-1 md:ml-64 transition-all duration-300 overflow-y-auto overflow-x-hidden">
+
+                <Header setIsOpen={setSidebarOpen}/>
+
+                <div className="p-4 md:p-8">
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         {children}
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     );
 }
